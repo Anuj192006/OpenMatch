@@ -9,9 +9,14 @@ from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, field_validator
 
-from backend.github_client import GitHubClientError, fetch_github_issues_from_url
-from backend.groq_client import generate_enhanced_explanation
-from backend.recommender import rank_issues
+try:
+    from backend.github_client import GitHubClientError, fetch_github_issues_from_url
+    from backend.groq_client import generate_enhanced_explanation
+    from backend.recommender import rank_issues
+except ModuleNotFoundError:
+    from github_client import GitHubClientError, fetch_github_issues_from_url
+    from groq_client import generate_enhanced_explanation
+    from recommender import rank_issues
 
 DATA_PATH = Path(__file__).parent / "data" / "issues.json"
 

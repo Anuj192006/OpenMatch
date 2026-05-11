@@ -7,7 +7,10 @@ from urllib.parse import urlparse
 
 import httpx
 
-from backend.recommender import canonicalize_skill, derive_focus_areas, normalize_token
+try:
+    from backend.recommender import canonicalize_skill, derive_focus_areas, normalize_token
+except ModuleNotFoundError:
+    from recommender import canonicalize_skill, derive_focus_areas, normalize_token
 
 GITHUB_API_BASE = "https://api.github.com"
 

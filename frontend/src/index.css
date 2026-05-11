@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 22% 96%;
+    --foreground: 216 33% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 216 33% 16%;
+    --primary: 177 73% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 18% 94%;
+    --secondary-foreground: 216 33% 16%;
+    --muted: 210 20% 93%;
+    --muted-foreground: 215 16% 42%;
+    --accent: 177 32% 92%;
+    --accent-foreground: 216 33% 16%;
+    --border: 215 22% 86%;
+    --input: 215 22% 86%;
+    --ring: 177 73% 29%;
+    --radius: 1.25rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.16);
+  }
+}
+
+@layer components {
+  .skill-slider {
+    @apply h-2 w-full cursor-pointer appearance-none rounded-full bg-muted accent-[hsl(var(--primary))];
+  }
+
+  .skill-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.16);
+  }
+
+  .skill-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.16);
+  }
+}
